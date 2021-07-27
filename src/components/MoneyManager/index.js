@@ -98,7 +98,7 @@ class MoneyManager extends Component {
     return (
       <div className="bg">
         <div className="header">
-          <h1>Hi Richard</h1>
+          <h1>Hi, Richard</h1>
           <p>
             Welcome back to your <span>Money Manager</span>
           </p>
@@ -139,7 +139,7 @@ class MoneyManager extends Component {
                   }}
                 >
                   {transactionTypeOptions.map(type => (
-                    <option key={uuidv4()} value={type.optionId}>
+                    <option key={type.optionId} value={type.displayText}>
                       {type.displayText}
                     </option>
                   ))}
@@ -152,7 +152,7 @@ class MoneyManager extends Component {
             </form>
           </div>
           <div className="history-container">
-            <h1>history</h1>
+            <h1>History</h1>
             <ul className="list">
               <li className="lis-item-header">
                 <p>Title</p>
