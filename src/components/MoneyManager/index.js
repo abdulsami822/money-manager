@@ -52,6 +52,13 @@ class MoneyManager extends Component {
   onSubmit = event => {
     event.preventDefault()
     const {titleInput, amountInput, typeInput} = this.state
+
+    const typeOption = transactionTypeOptions.find(
+      eachTransaction => eachTransaction.optionId === typeInput,
+    )
+
+    const {displayText} = typeOption
+
     if (!titleInput || !amountInput || !typeInput) {
       this.setState({errorMessage: 'Please Enter Valid Details'})
     } else {
@@ -61,7 +68,7 @@ class MoneyManager extends Component {
           {
             title: titleInput,
             amount: amountInput,
-            type: typeInput,
+            type: displayText,
             index: uuidv4(),
           },
         ],
@@ -122,6 +129,7 @@ class MoneyManager extends Component {
               <div className="input-container">
                 <label htmlFor="amount">AMOUNT</label>
                 <input
+                  type="number"
                   id="amount"
                   placeholder="Amount"
                   value={amountInput}
@@ -139,7 +147,7 @@ class MoneyManager extends Component {
                   }}
                 >
                   {transactionTypeOptions.map(type => (
-                    <option key={type.optionId} value={type.displayText}>
+                    <option key={type.optionId} value={type.optionId}>
                       {type.displayText}
                     </option>
                   ))}

@@ -5,7 +5,7 @@ const TransactionItem = props => {
   return (
     <>
       <p>{title}</p>
-      <p>{amount}</p>
+      <p>{`Rs ${amount}`}</p>
       <p>{type}</p>
       <button
         type="button"
